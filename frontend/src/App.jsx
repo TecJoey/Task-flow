@@ -6,7 +6,7 @@ function App() {
 
     // 📌 Aufgaben aus dem Backend laden
     useEffect(() => {
-        fetch("http://localhost:5000/tasks")
+        fetch("https://taskflow-8law.onrender.com/tasks")
             .then(res => res.json())
             .then(data => setTasks(data))
             .catch(err => console.error("Fehler beim Abrufen:", err));
@@ -14,7 +14,7 @@ function App() {
 
     // 📌 Neue Aufgabe hinzufügen
     const addTask = () => {
-        fetch("http://localhost:5000/tasks", {
+        fetch("https://taskflow-8law.onrender.com/tasks", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ name: newTask })
@@ -28,7 +28,7 @@ function App() {
 
     // 📌 Aufgabe löschen
     const deleteTask = (id) => {
-        fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" })
+        fetch(`https://taskflow-8law.onrender.com/tasks/${id}`, { method: "DELETE" })
             .then(() => setTasks(tasks.filter(task => task._id !== id)))
             .catch(err => console.error("Fehler beim Löschen:", err));
     };
